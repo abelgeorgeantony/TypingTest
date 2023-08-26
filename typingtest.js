@@ -44,26 +44,29 @@ function backspace(len) {
 
 
 let colorprint = texttotype.innerHTML;
+let letterclasscounter=0;
 // texttotype.innerText.substr(0, (textinput.value.length-1))
 function indicatecorrect() {
     if(colorprint.lastIndexOf("</span>") === -1) {
-        texttotype.innerHTML = colorprint.substr(0,(textinput.value.length-1))+"<span style='background-color:green'>"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
+        texttotype.innerHTML = colorprint.substr(0,(textinput.value.length-1))+"<span style='background-color:green' class=\"colorletter"+letterclasscounter+"\">"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
     }
     else {
-        texttotype.innerHTML = colorprint.substr(0,(colorprint.lastIndexOf("</span>")+6))+"<span style='background-color:green'>"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
+        texttotype.innerHTML = colorprint.substr(0,(colorprint.lastIndexOf("</span>")+6))+"<span style='background-color:green' class=\"colorletter"+letterclasscounter+"\">"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
     }
     colorprint = texttotype.innerHTML;
+    letterclasscounter++;
     console.log(colorprint);
 }
 function indicatewrong() {
     textinput.value = textinput.value.substr(0, (textinput.value.length-1)) + texttotype.innerText.charAt(textinput.value.length-1);
     if(colorprint.lastIndexOf("</span>") === -1) {
-        texttotype.innerHTML = colorprint.substr(0,(textinput.value.length-1))+"<span style='background-color:red'>"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
+        texttotype.innerHTML = colorprint.substr(0,(textinput.value.length-1))+"<span style='background-color:red' class=\"colorletter"+letterclasscounter+"\">"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
     }
     else {
-        texttotype.innerHTML = colorprint.substr(0,(colorprint.lastIndexOf("</span>")+6))+"<span style='background-color:red'>"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
+        texttotype.innerHTML = colorprint.substr(0,(colorprint.lastIndexOf("</span>")+6))+"<span style='background-color:red' class=\"colorletter"+letterclasscounter+"\">"+textinput.value.substr((textinput.value.length-1),(textinput.value.length))+"</span>"+texttotype.innerText.substr((textinput.value.length));
     }
     colorprint = texttotype.innerHTML;
+    letterclasscounter++;
     console.log(colorprint);
 }
 
