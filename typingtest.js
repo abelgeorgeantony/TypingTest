@@ -40,10 +40,12 @@ function restricttyping() {
 }
 
 let colorprint = texttotype.innerHTML;
+let spancount = 0;
 function backspace(len) {
     texttotype.innerHTML = colorprint.slice(0,(colorprint.lastIndexOf("</span>")-1)) + "</span>" + texttotype.innerText.slice(len);
     colorprint = texttotype.innerHTML;
     console.log(texttotype.innerHTML);
+
 }
 
 

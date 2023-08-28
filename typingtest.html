@@ -8,14 +8,15 @@
     <title>Test your typing speed</title>
 </head>
 
-<body>
+<body onload="loadText()">
     <div class="typingtest">
-        <p aria-readonly="false" id="texttotype" class="texttotype testcommonstyle">hello</p>
+        <p aria-readonly="false" id="texttotype" class="texttotype testcommonstyle"></p>
         <input type="text" value="" id="testspace" oninput="evaluatetyping()" class="testspace testcommonstyle">
     </div>
 
 
     <script src="typingtest.js"> </script>
+    <script src="textcreater.js"> </script>
 </body>
 
 </html>
