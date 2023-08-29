@@ -1,11 +1,9 @@
 .testcommonstyle {
     margin: 0;
-    font-size: larger;
+    font-size: 45px;
     font-weight: 900;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    width: 300px;
 }
-
 
 .texttotype {
     position: relative;
@@ -14,14 +12,17 @@
     z-index: 1;
     outline: none;
     color: rgba(0, 0, 0, 0.450);
+    width: 50vw;
+    height: 50px;
 }
-
 .testspace {
     position: absolute;
     background: transparent;
-    border-width: 5px;
+    border-width: 0;
     z-index: 9999999999;
-    color: rgba(0, 0, 0, 0.700);
+    color: rgba(0, 0, 0, 0);
+    width: 95vw;
+    height: 195vh;
 }
 
 body {
@@ -36,4 +37,11 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+}
+
+.letterwrong {
+    background-color: rgba(255, 0, 0, 0.666);
+}
+.lettercorrect {
+    background-color: rgba(0, 128, 0, 0.666);
 }
