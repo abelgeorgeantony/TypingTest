@@ -3,11 +3,12 @@ let texttobehtmllized = "Also void she'd whales Sea of, so face beast stars man 
 let htmlinprogress = "";
 let lettercounter = 0;
 function loadText() {
+    texttobehtmllized = texttobehtmllized.split( /\s+/ ).join( " " );
     while(texttobehtmllized.length > 0 ) {
         addspan();
     }
     texttotype2.innerHTML = htmlinprogress;
-    console.log(texttotype2.innerHTML);
+    //console.log(texttotype2.innerHTML);
 }
 
 function addspan() {

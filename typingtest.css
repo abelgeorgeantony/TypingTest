@@ -3,6 +3,7 @@
     font-size: 45px;
     font-weight: 900;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 70vw;
 }
 
 .texttotype {
@@ -12,17 +13,16 @@
     z-index: 1;
     outline: none;
     color: rgba(0, 0, 0, 0.450);
-    width: 50vw;
-    height: 50px;
+    height: 70vh;
 }
 .testspace {
     position: absolute;
     background: transparent;
     border-width: 0;
+    outline: none;
     z-index: 9999999999;
     color: rgba(0, 0, 0, 0);
-    width: 95vw;
-    height: 195vh;
+    height: 55vh;
 }
 
 body {
