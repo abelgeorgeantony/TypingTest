@@ -15,13 +15,21 @@ function evaluatetyping() {
     let enteredtext = textinput.innerText;
     enteredtext = enteredtext.split(/\s+/).join(" ");
     let textlength = enteredtext.length;
-    console.log("Typed text:" + enteredtext + "\nNow typed char:" + enteredtext.charAt(textlength - 1));
+    console.log("Typed text:" + enteredtext +"9"+ "\nNow typed char:" + enteredtext.charAt(textlength - 1));
     if (key === "Backspace") {
         backspace();
         return 0;
     }
     else if (key === " ") {
         console.log("Space pressed");
+        if(enteredtext.charAt(textlength-1) === " ") {
+            if(textinput.innerHTML.indexOf("</pre>") === -1) {
+                textinput.innerHTML = textinput.innerHTML.slice(0, -2 ) + "<pre>" + " " + "</pre>";
+            }
+            else {
+                textinput.innerHTML = textinput.innerHTML.slice(0, ((textinput.innerHTML.indexOf("</pre>"))-1 )) + " " + "</pre>";
+            }
+        }
     }
     if (texttotype.innerText.length < textlength) {
         restricttyping();
