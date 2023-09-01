@@ -15,7 +15,7 @@ function evaluatetyping() {
     let enteredtext = textinput.innerText;
     enteredtext = enteredtext.split(/\s+/).join(" ");
     let textlength = enteredtext.length;
-    console.log("Typed text:" + enteredtext +"9"+ "\nNow typed char:" + enteredtext.charAt(textlength - 1));
+    console.log("Typed text:" + enteredtext + "\nNow typed char:" + enteredtext.charAt(textlength - 1));
     //console.log("Typed innerHTML:" + textinput.innerHTML);
     if (key === "Backspace") {
         backspace();
@@ -29,6 +29,10 @@ function evaluatetyping() {
                 //console.log(textinput.innerText.slice(0, -1 ) + "<pre>" + "&nbsp;" + "</pre>");
             }
             else {
+                if((enteredtext.charAt(0) != texttotype.innerText.charAt(0)) && (enteredtext.charAt(0) === " ")) {
+                    textinput.innerHTML = textinput.innerHTML.slice(0,5) + textinput.innerHTML.slice(6);
+                    console.log(textinput.innerText);
+                }
                 textinput.innerHTML = textinput.innerHTML.slice(0, (textinput.innerHTML.indexOf("</pre>"))) + " </pre>";
                 //console.log(textinput.innerHTML.slice(0, (textinput.innerHTML.indexOf("</pre>")-1)) + " </pre>");
                 console.log(textinput.innerText);
