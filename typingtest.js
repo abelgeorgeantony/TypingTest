@@ -26,17 +26,15 @@ function evaluatetyping() {
         if(enteredtext.charAt(textlength-1) === " ") {
             if(textinput.innerHTML.indexOf("</pre>") === -1) {
                 textinput.innerHTML = "<pre>" + textinput.innerText.slice(0, -1 ) + " " + "</pre>";
-                //console.log(textinput.innerText.slice(0, -1 ) + "<pre>" + "&nbsp;" + "</pre>");
             }
             else {
-                if((enteredtext.charAt(0) != texttotype.innerText.charAt(0)) && (enteredtext.charAt(0) === " ")) {
+                /*if((enteredtext.charAt(0) != texttotype.innerText.charAt(0)) && (enteredtext.charAt(0) === " ")) {
                     textinput.innerHTML = textinput.innerHTML.slice(0,5) + textinput.innerHTML.slice(6);
                     console.log(textinput.innerText);
-                }
-                textinput.innerHTML = textinput.innerHTML.slice(0, (textinput.innerHTML.indexOf("</pre>"))) + " </pre>";
-                //console.log(textinput.innerHTML.slice(0, (textinput.innerHTML.indexOf("</pre>")-1)) + " </pre>");
-                console.log(textinput.innerText);
-                console.log("Typed innerHTML:" + textinput.innerHTML);
+                }*/
+                textinput.innerHTML = textinput.innerHTML.slice(0, (textinput.innerHTML.indexOf("</pre>")-1)) + " </pre>";
+                //console.log(textinput.innerText);
+                //console.log("Typed innerHTML:" + textinput.innerHTML);
             }
         }
     }
@@ -45,7 +43,7 @@ function evaluatetyping() {
         return 0;
     }
 
-    if (issamechar(enteredtext, textlength)) {
+    if (issamechar(textinput.innerText, textinput.innerText.length)) {
         console.log("CORRECT");
         indicatecorrect();
     }
@@ -54,14 +52,17 @@ function evaluatetyping() {
         indicatewrong();
     }
 
-    /*let element = textinput;
-    let selected = window.getSelection();
-    let range = document.createRange();
-    range.setStart(element.childNodes[0], textinput.innerText.length);
-    range.collapse(true);
-    selected.removeAllRanges();
-    selected.addRange(range); 
-    element.focus();*/
+    let range = document.createRange();//Create a range (a range is a like the selection but invisible)
+    range.selectNodeContents(textinput);//Select the entire contents of the element with the range
+    range.collapse(false);//collapse the range to the end point. false means collapse to end rather than the start
+    let selection = window.getSelection();//get the selection object (allows you to change selection)
+    selection.removeAllRanges();//remove any selections already made
+    selection.addRange(range);//make the range you have just created the visible selection
+    
+    console.log("AFTER EVALUATION \n--------------------------------------");
+    console.log("Typed innerHTML:" + textinput.innerHTML);
+    console.log("Typed innerText:" + textinput.innerText);
+    console.log("--------------------------------------");
 }
 
 function restricttyping() {
